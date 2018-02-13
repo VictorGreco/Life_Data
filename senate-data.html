@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--    MUSTACHE-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+    <!--    COLORBOX-->
+    <script src="colorboxes/colorbox-master/jquery.colorbox.js"></script>
+    <script src="colorboxes/colorbox-master/jquery.colorbox-min.js"></script>
+    <!--    COLORBOX css-->
+    <link rel="stylesheet" href="colorboxes/colorbox-master/example1/colorbox.css">
+    <!--DATA TABLE -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css">
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+    <!--    MY OWN CSS-->
+    <link rel="stylesheet" href="stylesheet/main.css">
+</head>
+
+<body data-source-type="senate" class="senate-data">
+    <!--            NAVEGADOR-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class=" navbar navbar-default">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="https://www.whitehouse.gov/the_press_office/TransparencyandOpenGovernment">
+                                    TGIF
+                                </a>
+                            <a class="navbar-brand" href="https://www.whitehouse.gov/the_press_office/TransparencyandOpenGovernment">
+                                <img class="tgif_logo" src="Resources/1200px-Seal_of_the_United_States_Congress.svg.png">
+                                </a>
+                        </div>
+                        <div class="nav navbar-nav">
+                            <ul class="nav navbar-nav">
+                                <li>
+                                    <a href="home.html">Home</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown">
+                                            Congress 113 <span class="caret"></span>
+                                        </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a href="house-data.html">House</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown">
+                                            Attendance <span class="caret"></span>
+                                        </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a href="house-attendence.html">House</a>
+                                        </li>
+                                        <li>
+                                            <a href="senate-attendence.html">Senate</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown">
+                                            Party Loyalty <span class="caret"></span>
+                                        </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a href="house-party-loyalty.html">House</a>
+                                        </li>
+                                        <li>
+                                            <a href="senate-party-loyalty.html">Senate</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!--        TEXT SENATORS-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <h2>Senators</h2>
+                <p class="p_home">First convened in 1789, the composition and powers of the Senate are established in Article One of the U.S. Constitution. Each state is represented by two senators, regardless of population, who serve staggered six-year terms. The Senate has several exclusive powers not granted to the House, including consenting to treaties as a precondition to their ratification and consenting to or confirming appointments of Cabinet secretaries, federal judges, other federal executive officials, military officers, regulatory officials, ambassadors, and other federal uniformed officers, as well as trial of federal officials impeached by the House.</p>
+
+            </div>
+        </div>
+    </div>
+    <!--        CHECKBOXES-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10">
+                <div id="checkboxes">
+                    <span>Filter by party:</span>
+                    <input id="republican" type="checkbox" name="Republican" value="R" />
+                    <span>Republican</span>
+                    <input id="democrat" type="checkbox" name="Democrat" value="D" />
+                    <span>Democrat</span>
+                    <input id="independent" type="checkbox" name="Independent" value="I" />
+                    <span>Independent</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="filter_list">
+                        <span>Filter by State: </span>
+                        <div class="dropdown">
+                            <select id="filterByState"></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--            TABLA-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-responsive">
+                    <table class="table table-hover" id="table">
+                        <thead id="dataTableHeader">
+
+                        </thead>
+                        <tbody id="dataTableBody">
+                            <div class="spinwrap">
+                                <div class="spinner">
+                                    <div class="cube1"></div>
+                                    <div class="cube2"></div>
+                                </div>
+                            </div>
+                        </tbody>
+                    </table>
+                    <script type="text/html" id="data-template">
+                        {{#members}}
+                        <tr class="{{party}} {{state}}">
+                            <td><a href="{{url}}" class="iframe">{{first_name}} {{middle_name}} {{last_name}}</a></td>
+                            <td>{{party}}</td>
+                            <td>{{state}}</td>
+                            <td>{{seniority}}</td>
+                            <td>{{votes_with_party_pct}}</td>
+                        </tr>
+                        {{/members}}
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--        FOOTER-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <footer class="panel-footer">
+                    <p>&copy; 2016 TGIF | All rights reserved</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <!--    <script src="scripts/pro-congress-113-senate.js"></script>-->
+    <script src="scripts/senateData.js"></script>
+</body>
+
+</html>

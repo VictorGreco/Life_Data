@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--    MY OWN CSS-->
+    <link rel="stylesheet" href="stylesheet/main.css">
+    <!--    COLORBOX css-->
+    <link rel="stylesheet" href="colorboxes/colorbox-master/example1/colorbox.css">
+    <!--DATA TABLE -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css">
+</head>
+
+
+<body data-source-type="senate">
+    <!--            NAVEGADOR-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class=" navbar navbar-default">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="https://www.whitehouse.gov/the_press_office/TransparencyandOpenGovernment">
+                                    TGIF
+                            </a>
+                            <a class="navbar-brand" href="https://www.whitehouse.gov/the_press_office/TransparencyandOpenGovernment">
+                                <img class="tgif_logo" src="Resources/1200px-Seal_of_the_United_States_Congress.svg.png">
+                            </a>
+                        </div>
+                        <div class="nav navbar-nav">
+                            <ul class="nav navbar-nav">
+                                <li>
+                                    <a href="home.html">Home</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown">
+                                            Congress 113 <span class="caret"></span>
+                                        </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a href="house-data.html">House</a>
+                                        </li>
+                                        <li>
+                                            <a href="senate-data.html">Senate</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown">
+                                            Attendance <span class="caret"></span>
+                                        </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a href="house-attendence.html">House</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown">
+                                            Party Loyalty <span class="caret"></span>
+                                        </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a href="house-party-loyalty.html">House</a>
+                                        </li>
+                                        <li>
+                                            <a href="senate-party-loyalty.html">Senate</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!--        TEXT SENATORS-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2>Attendance</h2>
+                <p>The Constitution specifies that a majority of members constitutes a quorum to do business in each house. Representatives and senators rarely force the presence of a quorum by demanding quorum calls; thus, in most cases, debates continue even if a majority is not present.</p>
+
+                <p>The Senate uses roll-call votes; a clerk calls out the names of all the senators, each senator stating "aye" or "no" when his or her name is announced. The House reserves roll-call votes for the most formal matters, as a roll-call of all 435 representatives takes quite some time; normally, members vote by electronic device. In the case of a tie, the motion in question fails. In the Senate, the Vice President may (if present) cast the tiebreaking vote.</p>
+            </div>
+            <div class="col-lg-6">
+                <h2>Senate at a glance</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Party</th>
+                            <th>Number of Reps</th>
+                            <th>% Voted with Prty</th>
+                        </tr>
+                    </thead>
+                    <tbody id="topTableBody">
+                        <div class="spinwrap">
+                            <div class="spinner">
+                                <div class="cube1"></div>
+                                <div class="cube2"></div>
+                            </div>
+                        </div>
+                    </tbody>
+                    <script type="text/html" id="topTableContent">
+                        {{#Table_1}}
+                        <tr>
+                            <td>{{party}}</td>
+                            <td>{{number_of_reps}}</td>
+                            <td>{{p_Voted_w_Party}}</td>
+                        </tr>
+                        {{/Table_1}}
+                    </script>
+                </table>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <h2>Least Engaged (Bottom 10% Attendance)</h2>
+                <table class="table table-striped" id="descendence">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Number of Missed Votes</th>
+                            <th>% Missed</th>
+                        </tr>
+                    </thead>
+                    <tbody id="attendenceRightTable">
+                        <div class="spinwrap">
+                            <div class="spinner">
+                                <div class="cube1"></div>
+                                <div class="cube2"></div>
+                            </div>
+                        </div>
+
+                    </tbody>
+                    <script type="text/html" id="attendenceRightContent">
+                        {{#moreToLess}}
+                        <tr>
+                            <td><a href="{{url}}" class="iframe">{{first_name}} {{{middle_name}}} {{{last_name}}}</a></td>
+                            <td>{{missed_votes}}</td>
+                            <td>{{missed_votes_pct}}</td>
+                        </tr>
+                        {{/moreToLess}}
+
+                    </script>
+                </table>
+            </div>
+            <div class="col-lg-6">
+                <h2>Most Engaged (Top 10% Attendance)</h2>
+                <table class="table table-striped" id="ascendence">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Number of Missed Votes</th>
+                            <th>% Missed</th>
+                        </tr>
+                    </thead>
+                    <tbody id="attendenceLeftTable">
+                        <div class="spinwrap">
+                            <div class="spinner">
+                                <div class="cube1"></div>
+                                <div class="cube2"></div>
+                            </div>
+                        </div>
+
+                    </tbody>
+                    <script type="text/html" id="attendenceLeftContent">
+                        {{#lessToMore}}
+                        <tr>
+                            <td><a href="{{url}}" class="iframe">{{first_name}} {{middle_name}} {{last_name}}</a></td>
+                            <td>{{missed_votes}}</td>
+                            <td>{{missed_votes_pct}}</td>
+                        </tr>
+                        {{/lessToMore}}
+
+                    </script>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--            TABLA-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-responsive">
+                    <table id="senate-data" class="table table-hover"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--        FOOTER-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <footer class="panel-footer">
+                    <p>&copy; 2016 TGIF | All rights reserved</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--    MUSTACHE-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+    <!--    COLORBOX-->
+    <script src="colorboxes/colorbox-master/jquery.colorbox.js"></script>
+    <script src="colorboxes/colorbox-master/jquery.colorbox-min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+    <script src="scripts/statistics-json.js"></script>
+</body>
+
+</html>

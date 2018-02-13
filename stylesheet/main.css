@@ -1,0 +1,148 @@
+.col-lg-12,
+.container,
+.row {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.tgif_logo {
+    width: 50px;
+    height: 50px;
+}
+
+.img_aslamasda {
+    width: 100%;
+    height: auto;
+    margin-top: 50px;
+}
+
+.imagen_aslamasda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.panel-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tgif_logo {
+    width: auto;
+    height: 35px;
+    margin-top: -8px;
+}
+
+.dropdown-menu {
+    min-width: 131px;
+}
+
+.p_home {
+    text-align: left;
+}
+
+p {
+    text-align: justify;
+}
+
+tr td,
+tr th {
+    text-align: center;
+}
+
+tr td:first-child,
+tr th:first-child {
+    text-align: left;
+}
+
+.email_left {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.email_left img {
+    width: 15px;
+    height: auto;
+    margin: 10px;
+}
+
+.email_left a,
+table tr td:first-child a {
+    text-decoration: none;
+}
+
+.email_left a:hover,
+table tr td:first-child a:hover {
+    color: red;
+}
+
+.filter_list {
+    display: flex;
+    justify-content: center;
+}
+
+.spinwrap {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+.spinner {
+  margin: 0 auto;
+  width: 32px;
+  height: 32px;
+  position: relative;
+}
+
+.cube1, .cube2 {
+  background-color: #97bf0d;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  -webkit-animation: cubemove 2s infinite ease-in-out;
+  animation: cubemove 2s infinite ease-in-out;
+}
+
+.cube2 {
+  -webkit-animation-delay: -1s;
+  animation-delay: -1s;
+}
+
+@-webkit-keyframes cubemove {
+  25% { -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5) }
+  50% { -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg) }
+  75% { -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5) }
+  100% { -webkit-transform: rotate(-360deg) }
+}
+
+@keyframes cubemove {
+  25% { 
+    transform: translateX(42px) rotate(-90deg) scale(0.5);
+    -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5);
+  } 50% { 
+    transform: translateX(42px) translateY(42px) rotate(-179deg);
+    -webkit-transform: translateX(42px) translateY(42px) rotate(-179deg);
+  } 50.1% { 
+    transform: translateX(42px) translateY(42px) rotate(-180deg);
+    -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg);
+  } 75% { 
+    transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+    -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+  } 100% { 
+    transform: rotate(-360deg);
+    -webkit-transform: rotate(-360deg);
+  }
+}
+
+
+ .dataTables_wrapper .dataTables_filter{
+   align-content: center;
+    
+}
+
