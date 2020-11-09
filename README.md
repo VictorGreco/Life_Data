@@ -19,3 +19,13 @@ Unfortunatelly the API I used is not anymore available.
 * [Bootstrap 3](https://getbootstrap.com/docs/3.3/)
 * [Mustache 2](https://github.com/mustache/mustache.github.com)
 * [jQuery 3](https://jquery.com/)
+
+## Gallery
+<div>
+  <img src="./live_data_homepage_collapsed.png" alt="homepage" width="300"/>
+  <img src="./live_data_homepage_uncollapsed.png" alt="homepage" width="300"/>
+  <img src="./live_data_congress_no_filters.png" alt="homepage" width="300"/>
+  <img src="./live_data_congress_one_filter.png" alt="homepage" width="300"/>
+  <img src="./ive_data_congress_multiple_filters.png" alt="homepage" width="300"/>
+  <img src="./live_data_congress_dashboards.png" alt="homepage" width="300"/>
+</div>
