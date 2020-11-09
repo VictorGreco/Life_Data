@@ -21,11 +21,16 @@ Unfortunatelly the API I used is not anymore available.
 * [jQuery 3](https://jquery.com/)
 
 ## Gallery
-<div>
-  <img src="./live_data_homepage_collapsed.png" alt="homepage" width="300"/>
-  <img src="./live_data_homepage_uncollapsed.png" alt="homepage" width="300"/>
-  <img src="./live_data_congress_no_filters.png" alt="homepage" width="300"/>
-  <img src="./live_data_congress_one_filter.png" alt="homepage" width="300"/>
-  <img src="./ive_data_congress_multiple_filters.png" alt="homepage" width="300"/>
-  <img src="./live_data_congress_dashboards.png" alt="homepage" width="300"/>
-</div>
+  ### Collapsable static content
+  <img src="./live_data_homepage_collapsed.png" alt="homepage"/>
+  <img src="./live_data_homepage_uncollapsed.png" alt="homepage"/>
+  
+  ### Fetch and update livedata
+  <img src="./live_data_congress_no_filters.png" alt="homepage"/>
+  
+  ### Multiple and independent filter selection
+  <img src="./live_data_congress_one_filter.png" alt="homepage"/>
+  <img src="./ive_data_congress_multiple_filters.png" alt="homepage"/>
+  
+  ### Dashboard statistics
+  <img src="./live_data_congress_dashboards.png" alt="homepage"/>
