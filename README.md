@@ -1,4 +1,4 @@
-# Life_Data
+# life-data-congress
 Exemple of how to manage life data with AJAX calls
 
 ## Introduction
